@@ -28,7 +28,7 @@ export default function AuthProvider({ children }) {
     const response = await fetch("http://fauques.freeboxos.fr:3000/login", {
       method: "POST",
       headers: {
-        "Content-Type": "application/text",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
     });
@@ -44,7 +44,7 @@ export default function AuthProvider({ children }) {
     const response = await fetch("http://fauques.freeboxos.fr:3000/register", {
       method: "POST",
       headers: {
-        "Content-Type": "application/text",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ surname, name, email, password }),
     });
