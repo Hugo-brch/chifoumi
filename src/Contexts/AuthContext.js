@@ -25,10 +25,10 @@ export default function AuthProvider({ children }) {
   }
 
   async function login(email, password) {
-    const response = await fetch("http://localhost:5000/login", {
+    const response = await fetch("http://fauques.freeboxos.fr:3000/login", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/text",
       },
       body: JSON.stringify({ email, password }),
     });
@@ -41,10 +41,10 @@ export default function AuthProvider({ children }) {
     }
   }
   async function register(surname, name, email, password) {
-    const response = await fetch("http://localhost:5000/register", {
+    const response = await fetch("http://fauques.freeboxos.fr:3000/register", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/text",
       },
       body: JSON.stringify({ surname, name, email, password }),
     });
