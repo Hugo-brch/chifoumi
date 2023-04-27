@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { API_BASE_URL } from "../lib/constants";
 
 export const AuthContext = createContext(
   localStorage.getItem("auth") || "light"
@@ -24,36 +25,36 @@ export default function AuthProvider({ children }) {
     setUser(JSON.parse(atob(payload)));
   }
 
-  async function login(email, password) {
-    const response = await fetch("http://fauques.freeboxos.fr:3000/login", {
+  async function login(pseudo, password) {
+    const response = await fetch(`${API_BASE_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ pseudo, password }),
     });
     if (response.status === 200) {
       const data = await response.json();
       localStorage.setItem("token", data.accessToken);
       setUserFromToken(data.accessToken);
     } else {
-      throw new Error("login faild " + response.status);
+      throw new Error("Connexion impossible" + response.status);
     }
   }
-  async function register(surname, name, email, password) {
-    const response = await fetch("http://fauques.freeboxos.fr:3000/register", {
+  async function register(pseudo, email, password) {
+    const response = await fetch(`${API_BASE_URL}/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ surname, name, email, password }),
+      body: JSON.stringify({ pseudo, email, password }),
     });
     if (response.status === 201) {
       const data = await response.json();
       localStorage.setItem("token", data.accessToken);
       setUserFromToken(data.accessToken);
     } else {
-      throw new Error("login faild " + response.status);
+      throw new Error("Création de compte impossible" + response.status);
     }
   }
 
