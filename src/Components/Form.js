@@ -1,16 +1,18 @@
-import React, { useContext } from 'react'
-import { TacheContext } from '../../contexts/TacheContext';
+import React from 'react'
 
-export default function Form() {
-
-  const { addTache } = useContext(TacheContext);
-
-
+export default function Form({onSubmit, error}) {
   return (
-    <form onSubmit={addTache}>
-        <input name="title" />
-        <input name="date" type="date" />
-        <input type="submit" value="Add" />
-      </form>
+    <form onSubmit={onSubmit}>
+        <label>Username</label>
+        <input type="text" name="username" id="username" />
+        <label>Password</label>
+        <input type='password' name='password'/>
+        <div className='error'>
+          {error && <FontAwesomeIcon icon={faExclamationCircle} />}
+           <p className='error-txt'>{error}</p>
+        </div>
+       
+        <input type='submit' value='Confirmer' className='form-btn'/>
+    </form>
   )
 }

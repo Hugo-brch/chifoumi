@@ -2,20 +2,24 @@ import { createContext, useEffect, useState } from "react";
 import { API_BASE_URL } from "../lib/constants";
 
 export const AuthContext = createContext(
-  localStorage.getItem("auth") || "light"
+  localStorage.getItem("auth") || "false"
 );
 
 export default function AuthProvider({ children }) {
-  /**
-   * Gestion du auth
-   */
+  
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+    const id = localStorage.getItem("id");
     if (token) {
       setUserFromToken(token);
-    } else {
+    }
+    else 
+      if (id){
+        setUser(id);
+      } 
+    else {
       setUser(false);
     }
   }, []);
