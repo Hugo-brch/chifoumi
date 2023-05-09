@@ -1,12 +1,12 @@
-import Connexion from "./view/ConnexionView";
+import Connexion from "./View/ConnexionView";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthProvider from "./Contexts/AuthContext";
 import AppLayout from "./Layouts/AppLayout";
 import EventProvider from "./Contexts/EventContext";
-import Home from "./view/Home";
-import ListMatchesView from "./view/ListMatchesView";
+import Home from "./View/Home";
+import ListMatchesView from "./View/ListMatchesView";
 import MatchProvider from "./Contexts/MatchContext";
-import GameView from "./view/GameView";
+import GameView from "./View/GameView";
 
 
 
