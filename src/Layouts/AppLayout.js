@@ -1,37 +1,21 @@
 import React, { useContext } from "react";
+import { AuthContext } from "../Contexts/AuthContext";
 import { Link, Outlet } from "react-router-dom";
-import Button from "../components/Button";
-import { TacheContext } from "../contexts/TacheContext";
-import { ThemeContext } from "../contexts/ThemeContext";
+
+
 
 export default function AppLayout() {
-
-  const { taches } = useContext(TacheContext);
-  const tacheCount = taches.length;
-
-  const{ theme, toggleTheme } = useContext(ThemeContext);
-
-  const buttons = [
-    {
-        variant: "rounded" ,
-        title: theme === "light" ? "light" : "dark" ,
-        onClick: toggleTheme,
-    },
-    ]
-
+  const { user, logout } = useContext(AuthContext);
   return (
     <div>
-      My To do list
-      <Button  title={"Home"} component={Link} to="/" />
-      <Button
-        title={`Taches${tacheCount !== null ? `(${tacheCount})` : ""} `}
-        component={Link}
-        to="/Taches"
-      />
-      {buttons.map((button) => (
-        <Button key={button.title} {...button}></Button>
-      ))}
-      <br />
+      <nav className="navbar-desktop">
+        <div className="links">
+        <Link to="/">Home</Link>
+        <Link to="/matches">Jouer</Link>
+        {!user && <Link to="/Connexion">Connexion</Link>}
+        </div>
+        {user && <button text={"Se déconnecter"} onClick={logout}/>}
+      </nav>
       <Outlet />
     </div>
   );
