@@ -1,75 +1,66 @@
 import { createContext, useEffect, useState } from "react";
-import { API_BASE_URL } from "../lib/constants";
+import { useNavigate } from "react-router-dom";
 
-export const AuthContext = createContext(
-  localStorage.getItem("auth") || "false"
-);
+export const AuthContext = createContext();
 
 export default function AuthProvider({ children }) {
-  
-  const [user, setUser] = useState(null);
+	const [user, setUser] = useState(null);
+	const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    const id = localStorage.getItem("id");
-    if (token) {
-      setUserFromToken(token);
-    }
-    else 
-      if (id){
-        setUser(id);
-      } 
-    else {
-      setUser(false);
-    }
-  }, []);
+	useEffect(() => {
+		const token = localStorage.getItem("token");
+		if (token) {
+			setUser(token);
+		} else {
+			setUser(false);
+		}
+	}, []);
 
-  function setUserFromToken(token) {
-    const payload = token.split(".")[1];
-    setUser(JSON.parse(atob(payload)));
-  }
+	async function login(username, password) {
+		const response = await fetch("/login", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ username, password }),
+		});
+		if (response.status === 200) {
+			const data = await response.json();
+			setUser(data.token);
+			localStorage.setItem("token", data.token);
+			console.log("Succefully Login");
+		} else {
+			throw new Error("Login failed:", response.status);
+		}
+	}
+	async function register(username, password) {
+		const response = await fetch("/register", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ username, password }),
+		});
+		if (response.status === 201) {
+			const data = await response.json();
+			localStorage.setItem("token", data.token);
+			console.log("Succefully Register");
+			login(data.username, data.password)
+			navigate("/play");
+		} else {
+			throw new Error("Registration failed:");
+		}
+	}
 
-  async function login(pseudo, password) {
-    const response = await fetch(`${API_BASE_URL}/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ pseudo, password }),
-    });
-    if (response.status === 200) {
-      const data = await response.json();
-      localStorage.setItem("token", data.accessToken);
-      setUserFromToken(data.accessToken);
-    } else {
-      throw new Error("Connexion impossible" + response.status);
-    }
-  }
-  async function register(pseudo, email, password) {
-    const response = await fetch(`${API_BASE_URL}/register`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ pseudo, email, password }),
-    });
-    if (response.status === 201) {
-      const data = await response.json();
-      localStorage.setItem("token", data.accessToken);
-      setUserFromToken(data.accessToken);
-    } else {
-      throw new Error("Création de compte impossible" + response.status);
-    }
-  }
+	async function logout() {
+		setUser(false);
+		localStorage.removeItem("token");
+		console.log("Succefully logout");
+	}
 
-  async function logout() {
-    localStorage.removeItem("token");
-    setUser(false);
-  }
-
-  return (
-    <AuthContext.Provider value={{ user, login, logout, register }}>
-      {children}
-    </AuthContext.Provider>
-  );
+	return (
+		<AuthContext.Provider value={{ user, login, logout, register }}>
+			{children}
+		</AuthContext.Provider>
+	);
 }

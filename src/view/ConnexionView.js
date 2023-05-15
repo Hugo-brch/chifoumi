@@ -9,7 +9,7 @@ export default function Connexion() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user !== false) return navigate("/matches");
+    if (user !== false) return navigate("/");
   }, [user, navigate]);
 
   if (user !== false) return <></>;
