@@ -8,7 +8,7 @@ export default function PrivateRoutes({ children }) {
 	const { pathname } = useLocation();
 
 	useEffect(() => {
-		if (user === false) return navigate("/login");
+		if (user === false) return navigate("/");
 	}, [user, pathname, navigate]);
 
 	// eslint-disable-next-line eqeqeq

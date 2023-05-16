@@ -1,11 +1,29 @@
-import React from 'react';
 
-const GameView = () => {
-    return (
-        <div>
-            ça marche
-        </div>
-    );
+import React, { useContext } from "react";
+import { MatchContext } from "../Contexts/MatchContext";
+import { useNavigate } from "react-router-dom";
+
+const Game = () => {
+	const { postGames, getGames } = useContext(MatchContext);
+	const navigate = useNavigate();
+
+	function Rejoindre() {
+        getGames();
+		postGames()
+			.then(() => navigate("/fight"))
+			.catch((e) => {
+				console.log(e);
+				navigate("/fight");
+				window.alert("You already have a match, waiting for an opponent");
+			});
+	}
+
+	return (
+		<div>
+            Bienvenue!
+			<button onClick={Rejoindre}>Entrée dans l'arène</button>
+		</div>
+	);
 };
 
-export default GameView;
+export default Game;

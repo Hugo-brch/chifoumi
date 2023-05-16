@@ -1,8 +1,8 @@
 import { createContext, useState } from "react";
 
-export const GameContext = createContext();
+export const MatchContext = createContext();
 
-export default function GameProvider({ children }) {
+export default function MatchProvider({ children }) {
 	const [games, setGames] = useState();
 	const [currentGame, setCurrentGame] = useState();
 
@@ -54,7 +54,7 @@ export default function GameProvider({ children }) {
 	}
 
 	return (
-		<GameContext.Provider
+		<MatchContext.Provider
 			value={{
 				getGames,
 				games,
@@ -65,6 +65,6 @@ export default function GameProvider({ children }) {
 			}}
 		>
 			{children}
-		</GameContext.Provider>
+		</MatchContext.Provider>
 	);
 }

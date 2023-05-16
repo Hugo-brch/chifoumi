@@ -9,12 +9,8 @@ export default function AppLayout() {
   return (
     <div>
       <nav className="navbar-desktop">
-        <div className="links">
-        <Link to="/">Home</Link>
-        <Link to="/matches">Jouer</Link>
-        {!user && <Link to="/Connexion">Connexion</Link>}
-        </div>
-        {user && <button text={"Se déconnecter"} onClick={logout}/>}
+        <Link to="/">CHIFOU</Link>
+        {user && <button text={"Se déconnecter"} onClick={logout}>Déconnexion </button>}
       </nav>
       <Outlet />
     </div>
