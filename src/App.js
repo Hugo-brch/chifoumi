@@ -6,6 +6,7 @@ import Home from "./view/Home";
 import PrivateRoutes from "./Components/PrivateRoute";
 import GameView from "./view/GameView";
 import FightView from "./view/FightView";
+import MatchProvider from "./Contexts/MatchContext";
 
 
 
@@ -14,18 +15,20 @@ import FightView from "./view/FightView";
 function App() {
   return (
     <div className="App">
-    <BrowserRouter>
-      <AuthProvider>
-        <Routes>
-          <Route path="/" element={<AppLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/Connexion" element={<Connexion/>} />
-            <Route path="/play" element={<PrivateRoutes><GameView/></PrivateRoutes>}/>
-              <Route path="/fight" element={<PrivateRoutes><FightView/></PrivateRoutes>} />
-          </Route>
-        </Routes>  
-      </AuthProvider>
-    </BrowserRouter>
+      <BrowserRouter>
+        <AuthProvider>
+          <MatchProvider>
+            <Routes>
+              <Route path="/" element={<AppLayout />}>
+                <Route path="/" element={<Home />} />
+                <Route path="/Connexion" element={<Connexion />} />
+                <Route path="/play" element={<PrivateRoutes><GameView /></PrivateRoutes>} />
+                <Route path="/fight" element={<PrivateRoutes><FightView /></PrivateRoutes>} />
+              </Route>
+            </Routes>
+          </MatchProvider>
+        </AuthProvider>
+      </BrowserRouter>
     </div>
   );
 }

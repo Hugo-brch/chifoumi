@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { MatchContext } from "../Contexts/MatchContext";
 import { useNavigate } from "react-router-dom";
 
-const Game = () => {
+const GameView = () => {
 	const { postGames, getGames } = useContext(MatchContext);
 	const navigate = useNavigate();
 
@@ -16,6 +16,7 @@ const Game = () => {
 				navigate("/fight");
 				window.alert("You already have a match, waiting for an opponent");
 			});
+			console.log(Rejoindre)
 	}
 
 	return (
@@ -26,4 +27,4 @@ const Game = () => {
 	);
 };
 
-export default Game;
+export default GameView;

@@ -32,6 +32,7 @@ export default function MatchProvider({ children }) {
 		} else {
 			throw new Error("Joining matche failed:" + response);
 		}
+		console.log(postGames)
 	}
 
 	async function postMove(move, currentTurn) {

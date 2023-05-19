@@ -12,6 +12,7 @@ const Fight = () => {
 					{partie.user2 !== null ? partie.user2.username : "en recherche ..."}
 				</h3>
 			</span>
+			{partie.winner !== undefined ? 1:2}
 		</div>
 	);
 };
