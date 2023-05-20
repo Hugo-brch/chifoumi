@@ -2,6 +2,9 @@
 import React, { useContext } from "react";
 import { MatchContext } from "../Contexts/MatchContext";
 import { useNavigate } from "react-router-dom";
+import Feuille from "../Components/PFS/Feuille";
+import Ciseaux from "../Components/PFS/Ciseaux";
+import Pierre from "../Components/PFS/Pierre";
 
 const GameView = () => {
 	const { postGames, getGames } = useContext(MatchContext);
@@ -21,6 +24,9 @@ const GameView = () => {
 
 	return (
 		<div className="Dojo">
+			<Feuille/>
+			<Ciseaux/>
+			<Pierre/>
             Bienvenue!
 			<button onClick={Rejoindre}>Entrée dans l'arène</button>
 		</div>

@@ -1,9 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import { MatchContext } from "../Contexts/MatchContext";
 import { useNavigate } from "react-router-dom";
+import Pierre from "./PFS/Pierre";
+import Ciseaux from "./PFS/Ciseaux";
+import Feuille from "./PFS/Feuille";
 
 
-const MoveView = ({ currentTurn, setCurrentTurn  }) => {
+const Competence = ({ currentTurn, setCurrentTurn  }) => {
 	const [moveUser1, setMoveUser1] = useState();
 	const [moveUser2, setMoveUser2] = useState();
 	const [moveWinner, setMoveWinner] = useState();
@@ -28,13 +31,13 @@ const MoveView = ({ currentTurn, setCurrentTurn  }) => {
 		) {
 			switch (currentGame.turns[currentGame.turns.length - 1].user1) {
 				case "rock":
-					setMoveUser1("0");
+					setMoveUser1(<Pierre/>);
 					break;
 				case "paper":
-					setMoveUser1("[]");
+					setMoveUser1(<Ciseaux/>);
 					break;
 				case "scissors":
-					setMoveUser1(">8");
+					setMoveUser1(<Feuille/>);
 					break;
 				default:
 					setMoveUser1("");
@@ -42,13 +45,13 @@ const MoveView = ({ currentTurn, setCurrentTurn  }) => {
 
 			switch (currentGame.turns[currentGame.turns.length - 1].user2) {
 				case "rock":
-					setMoveUser2("0");
+					setMoveUser2(<Pierre/>);
 					break;
 				case "paper":
-					setMoveUser2("[]");
+					setMoveUser2(<Ciseaux/>);
 					break;
 				case "scissors":
-					setMoveUser2(">8");
+					setMoveUser2(<Feuille/>);
 					break;
 				default:
 					setMoveUser2("");
@@ -94,31 +97,31 @@ const MoveView = ({ currentTurn, setCurrentTurn  }) => {
 				<>
 					<div>
 						<span>
-							<img alt="move user1" src={moveUser1} />
+							{moveUser1}
 						</span>
 						<h5 >{moveWinner !== undefined ? moveWinner : ""}</h5>
 						<span >
-							<img alt="move user2" src={moveUser2} />
+							{moveUser2}
 						</span>
 					</div>
 					<span>
 						<span >
-							<button onClick={() => handleMove("rock")}>
-								0
+							<button  className="bn2" onClick={() => handleMove("rock")}>
+								<Pierre/>
+								<h3>Pierre</h3>
 							</button>
-							<h6>Pierre</h6>
 						</span>
 						<span>
-							<button onClick={() => handleMove("paper")}>
-								[]
+							<button className="bn2" onClick={() => handleMove("scissors")}>
+								<Ciseaux/>
+								<h3>Ciseaux</h3>
 							</button>
-							<h6>Feuille</h6>
 						</span>
 						<span >
-							<button onClick={() => handleMove("scissors")}>
-								-8
+							<button className="bn2" onClick={() => handleMove("paper")}>
+								<Feuille/>
+								<h2>Feuille</h2>
 							</button>
-							<h6>Ciseaux</h6>
 						</span>
 					</span>
 					
@@ -128,4 +131,4 @@ const MoveView = ({ currentTurn, setCurrentTurn  }) => {
 	);
 };
 
-export default MoveView;
+export default Competence;

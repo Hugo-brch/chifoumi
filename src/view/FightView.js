@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { MatchContext } from "../Contexts/MatchContext";
-import MoveView from "../Components/MoveView";
+import Competence from "../Components/Competence";
 
 
 const FightView = () => {
@@ -28,7 +28,7 @@ const FightView = () => {
 							? currentGame.user1.username
 							: "en attente ..."}
 					</h2>
-					<p>vs</p>
+					<h3>vs</h3>
 					<h2 className="text-2xl">
 						{currentGame.user2 !== null
 							? currentGame.user2.username
@@ -36,7 +36,7 @@ const FightView = () => {
 					</h2>
 				</span>
 				{currentGame !== undefined ? (
-					<MoveView currentTurn={currentTurn} setCurrentTurn={setCurrentTurn}/>
+					<Competence currentTurn={currentTurn} setCurrentTurn={setCurrentTurn}/>
 				) : (
 					<></>
 				)}

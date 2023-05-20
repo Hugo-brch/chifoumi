@@ -1,27 +1,17 @@
-import React, { useContext, useEffect, useCallback } from "react";
+import React, { useContext, } from "react";
 import { AuthContext } from "../Contexts/AuthContext";
-import { MatchContext } from "../Contexts/MatchContext";
 import { Link, Outlet } from "react-router-dom";
+import  useLocalStorage  from "react-use-localstorage";
 
 export default function AppLayout() {
   const { user, logout } = useContext(AuthContext);
-  const { getGames, currentGame } = useContext(MatchContext);
-
-  const memoizedGetGames = useCallback(() => {
-    getGames();
-  }, [getGames]);
-
-  useEffect(() => {
-    memoizedGetGames();
-  }, [memoizedGetGames]);
+  const [username] = useLocalStorage("username", "");
 
   return (
-    <div className="Applayout">
+    <div className="AppLayout">
       <nav className="navbar-desktop">
         <Link to="/">CHIFOU</Link>
-        {user && currentGame && (
-          <h2>{currentGame.user1?.username || "en attente ..."}</h2>
-        )}
+        {user && <h2>{username}</h2>}
         {user && <button text={"Se déconnecter"} onClick={logout}>Déconnexion</button>}
       </nav>
       <Outlet />
