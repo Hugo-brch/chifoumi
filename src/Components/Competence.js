@@ -33,10 +33,10 @@ const Competence = ({ currentTurn, setCurrentTurn  }) => {
 				case "rock":
 					setMoveUser1(<Pierre/>);
 					break;
-				case "paper":
+				case "scissors":
 					setMoveUser1(<Ciseaux/>);
 					break;
-				case "scissors":
+				case "paper":
 					setMoveUser1(<Feuille/>);
 					break;
 				default:
@@ -47,10 +47,10 @@ const Competence = ({ currentTurn, setCurrentTurn  }) => {
 				case "rock":
 					setMoveUser2(<Pierre/>);
 					break;
-				case "paper":
+				case "scissors":
 					setMoveUser2(<Ciseaux/>);
 					break;
-				case "scissors":
+				case "paper":
 					setMoveUser2(<Feuille/>);
 					break;
 				default:
@@ -59,13 +59,13 @@ const Competence = ({ currentTurn, setCurrentTurn  }) => {
 
 			switch (currentGame.turns[currentGame.turns.length - 1].winner) {
 				case "user1":
-					setMoveWinner(currentGame.user1.username + " Wins");
+					setMoveWinner(currentGame.user1.username + " Gagne");
 					break;
 				case "user2":
-					setMoveWinner(currentGame.user2.username + " Wins");
+					setMoveWinner(currentGame.user2.username + " Gagne");
 					break;
 				case "draw":
-					setMoveWinner("It's a draw");
+					setMoveWinner("égalité");
 					break;
 				default:
 					setMoveWinner("");
@@ -73,11 +73,11 @@ const Competence = ({ currentTurn, setCurrentTurn  }) => {
 		}
 
 		if (currentGame.winner === null) {
-			setText("It's a Draw");
+			setText("c'est une égalité!");
 		  } else if (currentGame.winner && currentGame.winner.username !== undefined) {
-			setText(currentGame.winner.username + " is the winner");
+			setText(currentGame.winner.username + " à gagné");
 		  } else {
-			setText("It's a Draw");
+			setText("c'est une égalité!");
 		  }
 	}, [currentTurn, currentGame, currentGame.winner]);
 	const navigate = useNavigate();
@@ -88,10 +88,7 @@ const Competence = ({ currentTurn, setCurrentTurn  }) => {
 			{currentGame.winner !== undefined ? (
 				<span>
 					<h3>{text}</h3>
-					<button
-						text="Quitter"
-						onClick={() => navigate("/connexion")}
-					>Quitter</button>
+					<button className="bn2" onClick={() => navigate("/connexion")}>Quitter</button>
 				</span>	
 			) : (
 				<>
@@ -104,21 +101,21 @@ const Competence = ({ currentTurn, setCurrentTurn  }) => {
 							{moveUser2}
 						</span>
 					</div>
-					<span>
+					<span className="compétence">
 						<span >
-							<button  className="bn2" onClick={() => handleMove("rock")}>
+							<button  className="bn2 PFS" onClick={() => handleMove("rock")}>
 								<Pierre/>
-								<h3>Pierre</h3>
+								<h2>Pierre</h2>
 							</button>
 						</span>
 						<span>
-							<button className="bn2" onClick={() => handleMove("scissors")}>
+							<button className="bn2 PFS" onClick={() => handleMove("scissors")}>
 								<Ciseaux/>
-								<h3>Ciseaux</h3>
+								<h2>Ciseaux</h2>
 							</button>
 						</span>
 						<span >
-							<button className="bn2" onClick={() => handleMove("paper")}>
+							<button className="bn2 PFS" onClick={() => handleMove("paper")}>
 								<Feuille/>
 								<h2>Feuille</h2>
 							</button>

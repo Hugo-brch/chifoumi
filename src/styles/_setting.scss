@@ -16,11 +16,11 @@ h1{
     font-size: 55px;
     font-family: $font2;
     font-weight: 800;
-    color: $color1;
+    color: $color3;
 }
 h2{
-    font-size: clamp(40px, 4vw, 80px);
-    font-family: $font2;
+    font-size: clamp(40px, 4vw, 30px);
+    font-family: $font1;
     font-weight: 800;
     color: $color1;
 }
@@ -62,12 +62,11 @@ padding: 0;
 
 html,
 body {
-  background-color: $color4;
-  color: $color1;
-  font-family: $font1;
-  scroll-behavior: smooth;
-  //---text---
-
+    background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url("/Images/Dojo1.webp") center;
+    background-size: cover;
+    color: $color1;
+    font-family: $font1;
+    scroll-behavior: smooth;
 }
 
 .AppLayout{
@@ -89,4 +88,10 @@ body {
 
   .item {
     width: 19%;
-  }
+    fill: black;
+    color: #121212;
+}
+
+.PFS{
+    height: 180px;
+}

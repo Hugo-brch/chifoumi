@@ -12,7 +12,7 @@ export default function AppLayout() {
       <nav className="navbar-desktop">
         <Link to="/">CHIFOU</Link>
         {user && <h2>{username}</h2>}
-        {user && <button text={"Se déconnecter"} onClick={logout}>Déconnexion</button>}
+        {user && <button className="bn3-hover bn31" onClick={logout}>Déconnexion</button>}
       </nav>
       <Outlet />
     </div>
