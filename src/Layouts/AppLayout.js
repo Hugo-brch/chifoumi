@@ -16,7 +16,7 @@ export default function AppLayout() {
   }, [memoizedGetGames]);
 
   return (
-    <div>
+    <div className="Applayout">
       <nav className="navbar-desktop">
         <Link to="/">CHIFOU</Link>
         {user && currentGame && (

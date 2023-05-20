@@ -20,7 +20,7 @@ const GameView = () => {
 	}
 
 	return (
-		<div>
+		<div className="Dojo">
             Bienvenue!
 			<button onClick={Rejoindre}>Entrée dans l'arène</button>
 		</div>

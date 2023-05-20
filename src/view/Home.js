@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
-        <div>
+        <div className='Name'>
             <h1>Chifoumi 1v1</h1>
             <Link to="/connexion">Commencer !</Link>
         </div>

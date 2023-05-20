@@ -37,7 +37,7 @@ export default function Connexion() {
   }
 
   return (
-    <div>
+    <div className="Connexion">
       <h2>Se connecter</h2>
       <form onSubmit={handleLogin}>
         <label htmlFor="username">Nom d'utilisateur:</label>

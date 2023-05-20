@@ -88,7 +88,7 @@ const MoveView = ({ currentTurn, setCurrentTurn  }) => {
 					<button
 						text="Quitter"
 						onClick={() => navigate("/connexion")}
-					/>
+					>Quitter</button>
 				</span>	
 			) : (
 				<>

@@ -15,13 +15,13 @@ const FightView = () => {
 				clearInterval(intervalId);
 			}
 			return () => clearInterval(intervalId);
-		}, 5000);
+		}, 3000);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [currentTurn]);
 
 	if (currentGame) {
 		return (
-			<div>
+			<div className="Fight">
 				<span>
 					<h2>
 						{currentGame.user1.username
