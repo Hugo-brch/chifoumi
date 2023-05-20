@@ -3,7 +3,7 @@ import { MatchContext } from "../Contexts/MatchContext";
 import MoveView from "../Components/MoveView";
 
 
-const GamesView = () => {
+const FightView = () => {
 	const { getGames, currentGame } = useContext(MatchContext);
 	const [currentTurn, setCurrentTurn] = useState(1);
 	
@@ -47,4 +47,4 @@ const GamesView = () => {
 	}
 };
 
-export default GamesView;
+export default FightView;
