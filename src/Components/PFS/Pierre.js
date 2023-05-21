@@ -35,7 +35,7 @@ const Pierre = () => {
                   initial="hidden"
                   animate="visible"
                   transition={{
-                  default: { duration: 7, ease: "easeInOut" },
+                  default: { duration: 4, ease: "easeInOut" },
                   fill: { duration: 1, ease: [1, 0.9, 0.8, 0.7]}
                   }}
               />

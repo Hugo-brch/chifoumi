@@ -62,17 +62,17 @@ const Competence = ({ currentTurn, setCurrentTurn  }) => {
 				case "user1":
 				  setTimeout(() => {
 					setMoveWinner(<span className="MoveWinner1"> {currentGame.user1.username} Gagne </span>);
-				  }, 5000);
+				  }, 3000);
 				  break;
 				case "user2":
 				  setTimeout(() => {
 					setMoveWinner(<span className="MoveWinner2"> {currentGame.user2.username} Gagne </span>);
-				  }, 5000); 
+				  }, 3000); 
 				  break;
 				case "draw":
 				  setTimeout(() => {
 					setMoveWinner("égalité");
-				  }, 5000);
+				  }, 3000);
 				  break;
 				default:
 				  setMoveWinner("");
