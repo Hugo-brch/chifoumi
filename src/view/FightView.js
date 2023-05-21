@@ -22,17 +22,17 @@ const FightView = () => {
 	if (currentGame) {
 		return (
 			<div className="Fight">
-				<span>
-					<h2>
+				<span className="VS">
+					<h2 className="user1">
 						{currentGame.user1.username
 							? currentGame.user1.username
-							: "en attente ..."}
+							: "... En recherche"}
 					</h2>
 					<h3>vs</h3>
-					<h2 className="text-2xl">
+					<h2 className="user2">
 						{currentGame.user2 !== null
 							? currentGame.user2.username
-							: "en attente ..."}
+							: "... En recherche"}
 					</h2>
 				</span>
 				{currentGame !== undefined ? (

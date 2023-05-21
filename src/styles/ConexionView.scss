@@ -1,12 +1,48 @@
 .Connexion{
     width: 100vw;
     height: 100%;
-    background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url("/Images/Dojo1.webp") center;
+    background:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("/Images/Dojo1.webp") center;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    h2{
+      color: $color3;
+      text-align: center;
+    }
+
+    form{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 20px 15px;
+      font-weight: 700;
+      font-size: 20px;
+
+      input{
+        background-color: rgba(0, 0, 0, 0.2);
+        color: $color4;
+        font-size: 30px;
+      }
+    }
+
+    .Login{
+      background-color: $color1;
+      color: $color3;
+      border-radius: 25px;
+      margin-bottom: 5%;
+    }
+
+    
+    .Register{
+      background-color: $color1;
+      color: $color3;
+      border-radius: 25px;
+    }
   
   }
+  
   

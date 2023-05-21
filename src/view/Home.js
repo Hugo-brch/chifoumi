@@ -6,6 +6,7 @@ const Home = () => {
         <div className='Name'>
             <h1>Le Chifoumi <br/> 1v1</h1>
             <Link to="/connexion"><button className='bn1'>Commencer !</button></Link>
+            <h3>Hugo et Charles</h3>
         </div>
     );
 };

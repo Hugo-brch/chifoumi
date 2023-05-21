@@ -42,27 +42,30 @@ export default function Connexion() {
 
   return (
     <div className="Connexion">
-      <h2>Se connecter</h2>
-      <form onSubmit={handleLogin}>
-        <label htmlFor="username">Nom d'utilisateur:</label>
-        <input type="text" name="username" required />
-
-        <label htmlFor="password">Mot de passe:</label>
-        <input type="password" name="password" required />
-
-        <button className="bn2" type="submit">Se connecter</button>
-      </form>
-
-      <h2>S'inscrire</h2>
-      <form onSubmit={handleRegister}>
-        <label htmlFor="username">Nom d'utilisateur:</label>
-        <input type="text" name="username" required />
-
-        <label htmlFor="password">Mot de passe:</label>
-        <input type="password" name="password" required />
-
-        <button className="bn2" type="submit">S'inscrire</button>
-      </form>
+      <span className="Login">
+        <h2>Se connecter</h2>
+        <form onSubmit={handleLogin}>
+          <label htmlFor="username">Nom d'utilisateur:</label>
+          <input type="text" name="username" required />
+          <br/>
+          <label htmlFor="password">Mot de passe:</label>
+          <input type="password" name="password" required />
+          <br/>
+          <button className="bn2" type="submit">Se connecter</button>
+        </form>
+      </span>
+      <span className="Register">
+        <h2>S'inscrire</h2>
+        <form onSubmit={handleRegister}>
+          <label htmlFor="username">Nom d'utilisateur:</label>
+          <input type="text" name="username" required />
+          <br/>
+          <label htmlFor="password">Mot de passe:</label>
+          <input type="password" name="password" required />
+          <br/>
+          <button className="bn2" type="submit">S'inscrire</button>
+        </form>
+      </span>
     </div>
   );
 }

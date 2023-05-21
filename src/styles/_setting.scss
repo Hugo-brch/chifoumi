@@ -73,25 +73,40 @@ body {
     height: 100vh;
 }
 .navbar-desktop{
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
     position: absolute;
     display: flex;
     align-items: center;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+
+    .user{
+        display: flex;
+        align-items: center;
+    }
+    img{
+        width: 15%;
+        height: auto;
+        margin: 40px 0px;
+    }
+    h2{
+        font-size: 15px;
+        color: $color3;
+        border: solid 4px $color1;
+        background-color: $color1;
+        border-radius: 50px 0px 0px 50px;
+        padding: 9px 17px;
+    }
 
 }
 
-.color{
-    stroke:rgb(128, 168, 46); 
-  }
 
-  .item {
+.item {
     width: 19%;
-    fill: black;
-    color: #121212;
 }
 
 .PFS{
-    height: 180px;
+    height: 180px;;
+    width: auto;
 }

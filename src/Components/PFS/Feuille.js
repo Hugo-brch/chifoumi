@@ -30,7 +30,7 @@ const Feuille = () => {
                   strokeWidth="40"
                   stroke-linecap="round" 
                   stroke-linejoin="round"
-                  stroke="#48FF44"
+                  stroke="#1DAC3D"
                   variants={icon}
                   initial="hidden"
                   animate="visible"

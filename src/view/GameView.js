@@ -21,7 +21,7 @@ const GameView = () => {
 	return (
 		<div className="Dojo">
             <h1>Bienvenue!</h1>
-			<p>Dans le monde de Chifou, des Champions légendaires s'affrontent dans des dojos lors de grands combats de chifoumi. <br/>Ces affrontements captivent le pays tout entier, car ils sont à la fois un spectacle passionnant et un moyen de résoudre les différends.<br/> Les champions, symboles de sagesse et de Force, inspirent à embrasser les valeurs du chifoumi transmi depuis des années.</p>
+			<p>Dans le monde de Chifou, des Champions légendaires s'affrontent dans des dojos lors de grands combats de chifoumi. Ces affrontements captivent le pays tout entier de Wano, car ils sont à la fois un spectacle passionnant et un moyen de résoudre les différends. Les champions, symboles de sagesse et de Force, inspirent à embrasser les valeurs du chifoumi transmi depuis des années.</p>
 			<button className="bn632-hover bn18" onClick={Rejoindre}>Entrée dans l'arène</button>
 		</div>
 	);

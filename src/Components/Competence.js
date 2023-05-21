@@ -6,6 +6,7 @@ import Ciseaux from "./PFS/Ciseaux";
 import Feuille from "./PFS/Feuille";
 
 
+
 const Competence = ({ currentTurn, setCurrentTurn  }) => {
 	const [moveUser1, setMoveUser1] = useState();
 	const [moveUser2, setMoveUser2] = useState();
@@ -59,25 +60,34 @@ const Competence = ({ currentTurn, setCurrentTurn  }) => {
 
 			switch (currentGame.turns[currentGame.turns.length - 1].winner) {
 				case "user1":
-					setMoveWinner(currentGame.user1.username + " Gagne");
-					break;
+				  setTimeout(() => {
+					setMoveWinner(<span className="MoveWinner1"> {currentGame.user1.username} Gagne </span>);
+				  }, 5000);
+				  break;
 				case "user2":
-					setMoveWinner(currentGame.user2.username + " Gagne");
-					break;
+				  setTimeout(() => {
+					setMoveWinner(<span className="MoveWinner2"> {currentGame.user2.username} Gagne </span>);
+				  }, 5000); 
+				  break;
 				case "draw":
+				  setTimeout(() => {
 					setMoveWinner("égalité");
-					break;
+				  }, 5000);
+				  break;
 				default:
-					setMoveWinner("");
+				  setMoveWinner("");
 			}
 		}
 
 		if (currentGame.winner === null) {
-			setText("c'est une égalité!");
+			setText("C'est une égalité!");
 		  } else if (currentGame.winner && currentGame.winner.username !== undefined) {
-			setText(currentGame.winner.username + " à gagné");
+			setText(
+				<span>
+      				VAINQUEUR <br /> {currentGame.winner.username}
+    			</span>);
 		  } else {
-			setText("c'est une égalité!");
+			setText("C'est une égalité!");
 		  }
 	}, [currentTurn, currentGame, currentGame.winner]);
 	const navigate = useNavigate();
@@ -86,18 +96,18 @@ const Competence = ({ currentTurn, setCurrentTurn  }) => {
 	return (
 		<>
 			{currentGame.winner !== undefined ? (
-				<span>
+				<span className="Winner">
 					<h3>{text}</h3>
 					<button className="bn2" onClick={() => navigate("/connexion")}>Quitter</button>
 				</span>	
 			) : (
 				<>
-					<div>
-						<span>
+					<div className="Move">
+						<span className="moveUser">
 							{moveUser1}
 						</span>
-						<h5 >{moveWinner !== undefined ? moveWinner : ""}</h5>
-						<span >
+						<h5>{moveWinner !== undefined ? moveWinner : ""}</h5>
+						<span className="moveUser" >
 							{moveUser2}
 						</span>
 					</div>

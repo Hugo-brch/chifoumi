@@ -28,9 +28,9 @@ export default function AuthProvider({ children }) {
       const data = await response.json();
       setUser({ token: data.token, username: data.username }); // Ajouter le nom d'utilisateur à l'objet user
       localStorage.setItem("token", data.token);
-      console.log("Successfully Login");
+      console.log("Connecté");
     } else {
-      throw new Error("Login failed:", response.status);
+      throw new Error("Login failed", response.status);
     }
   }
 
@@ -45,18 +45,18 @@ export default function AuthProvider({ children }) {
     if (response.status === 201) {
       const data = await response.json();
       localStorage.setItem("token", data.token);
-      console.log("Successfully Register");
+      console.log("Enregistrer");
       login(data.username, data.password);
       navigate("/play");
     } else {
-      throw new Error("Registration failed:");
+      throw new Error("Registration failed");
     }
   }
 
   async function logout() {
     setUser(false);
     localStorage.removeItem("token");
-    console.log("Successfully logout");
+    console.log("déconnecté");
   }
 
   return (

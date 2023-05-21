@@ -8,10 +8,94 @@
     justify-content: center;
     flex-direction: column;
 
+    .VS{
+        width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        color: $color3;
+        position: fixed;
+        top: 25%;
+        
+    }
+    .user1{
+        font-size: 30px;
+        color: $color3 ;
+        font-family: $font2;
+        border: solid 4px rgb(19, 250, 173);
+        background-color: $color1;
+        border-radius: 50px;
+        padding: 20px 40px;
+    }
+    h3{
+        font-family: $font2;
+        font-size: 50px;
+    }
+    .user2{
+        font-size: 30px;
+        font-family: $font2;
+        color: $color3 ;
+        border: solid 4px rgb(119, 0, 255);
+        background-color: $color1;
+        border-radius: 50px;
+        padding: 20px 40px;
+    }
+
+    .Move{
+        width: 70% ;
+        height: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgba($color1, 0.5);
+        color: $color3;
+        font-size: 50px;
+        border-radius: 100px;
+        
+        .moveUser{
+            margin-left: 15%;
+            .item {
+                width: 40%;
+            }
+            
+        }
+
+    }
+
+    .MoveWinner1{
+        border: solid 4px rgb(19, 250, 173);
+        border-radius: 50px;
+        padding: 20px 40px;
+    }
+    .MoveWinner2{
+        border: solid 4px rgb(119, 0, 255);
+        border-radius: 50px;
+        padding: 20px 40px;
+    }
+    
     .compétence{
         display: flex;
         align-items: center;
         position: fixed;
         bottom: 50px;
+    }
+
+    .Winner{
+        border: solid 5px $color1;
+        background-color: $color1;
+        border-radius: 50px;
+        color: $color3;
+        padding: 15px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 10%;
+
+        h3{
+            font-family: $font1;
+            font-size: 70px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
     }
 }
