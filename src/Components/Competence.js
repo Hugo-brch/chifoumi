@@ -71,7 +71,7 @@ const Competence = ({ currentTurn, setCurrentTurn  }) => {
 				  break;
 				case "draw":
 				  setTimeout(() => {
-					setMoveWinner("égalité");
+					setMoveWinner(<span>égalité</span>);
 				  }, 3000);
 				  break;
 				default:
